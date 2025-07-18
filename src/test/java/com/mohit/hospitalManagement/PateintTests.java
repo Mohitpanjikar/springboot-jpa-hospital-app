@@ -17,13 +17,15 @@ public class PateintTests {
     private PatientRepository patientRepository;
 
     @Autowired
-    private PatientService PatientService;
+    private PatientService patientService;
 
-    @Test
-    public void testPatientRepository(){
-        List<Patient> patientList =patientRepository.findAll();    //this will run select query
-        System.out.println(patientList);
-    }
+//    @Test
+//    protected void testPatientRepository() {
+//
+//        List<Patient> patientList = patientRepository.findAllPatientWithAppointment();
+//        System.out.println(patientList);
+//
+//    }
 
 
 

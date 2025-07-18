@@ -9,8 +9,8 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
+import jakarta.persistence.OneToMany;
 
 @Entity
 @ToString
@@ -49,4 +49,11 @@ public class Patient {
 
     @Enumerated(EnumType.STRING)
     private BloodGroupType bloodGroup;
+
+    @OneToOne
+    @JoinColumn(name = "patient_insurance_id") //owning side (there should not be two source of truth
+    private Insurance insurance;
+
+    @OneToMany(mappedBy = "patient")
+    private List<Appointment>appointments;
 }
